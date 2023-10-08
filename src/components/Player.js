@@ -7,7 +7,6 @@ import {
     BiSkipNextCircle
 } from 'react-icons/bi'
 import { Box, Card, CardBody, Stack } from "@chakra-ui/react";
-import music_image from "../assets/music.jpg";
 
 export default function Player({ currentSong, currentIndex, nextSong, prevSong }) {
     const [isPlaying, setIsplaying] = useState(false);

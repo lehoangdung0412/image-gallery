@@ -5,23 +5,28 @@ export const audios = [
         creator: 'West Life'
     },
     {
-        name: 'Hoshiyar Rehna',
-        music: require('./assets/audios/Hoshiyar-Rehna.mp3'),
-        creator: 'Kabir Cafe'
+        name: 'A Thousand Years',
+        music: require('./assets/audios/A_Thousand_Years.mp3'),
+        creator: 'Christina Perri'
     },
     {
-        name: 'Agar Tum Saath Ho',
-        music: require('./assets/audios/Agar-Tum-Saath-Ho.mp3'),
-        creator: 'A.R. RAHMAN, ALKA YAGNIK, ARIJIT SINGH'
+        name: 'Beautiful In White',
+        music: require('./assets/audios/Beautiful_In_White.mp3'),
+        creator: 'West Life'
     },
     {
-        name: 'Ilahi',
-        music: require('./assets/audios/Ilahi.mp3'),
-        creator: 'Arijit Singh, Pritam'
+        name: 'Perfect',
+        music: require('./assets/audios/Perfect.mp3'),
+        creator: 'Ed Sheeran'
     },
     {
-        name: 'Kun Faya Kun',
-        music: require('./assets/audios/Kun Faya Kun.mp3'),
-        creator: 'Arijit Singh, Pritam'
+        name: 'Photograph',
+        music: require('./assets/audios/Photograph.mp3'),
+        creator: 'Ed Sheeran'
     },
-].sort(() => .5 - Math.random())
+    {
+        name: 'Waiting For Love',
+        music: require('./assets/audios/Waiting_For_Love.mp3'),
+        creator: 'Avicii'
+    },
+].sort(() => .6 - Math.random())
