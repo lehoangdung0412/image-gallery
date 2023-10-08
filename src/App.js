@@ -38,16 +38,22 @@ const App = () => {
     const [currentSong, setCurrentSong] = useState(songs[0]);
 
     const nextSong = () => {
-        if(currentIndex + 1 < audios.length){
+        if (currentIndex + 1 < audios.length) {
             setCurrentIndex(currentIndex + 1)
             setCurrentSong(audios[currentIndex + 1])
+        } else {
+            setCurrentIndex(0)
+            setCurrentSong(audios[0])
         }
     }
 
     const prevSong = () => {
-        if(currentIndex > 0){
+        if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1)
             setCurrentSong(audios[currentIndex - 1])
+        } else {
+            setCurrentIndex(audios.length - 1)
+            setCurrentSong(audios[audios.length - 1])
         }
     }
     useEffect(() => {
@@ -62,19 +68,17 @@ const App = () => {
     return (
       <ChakraProvider>
           <Box w='90%' m='0 auto'>
-              <Box display={'grid'} gridGap={'20px'} gridTemplateColumns={'1fr 1fr'}>
-                  <Heading textAlign={'center'} py='10' fontSize='5xl' alignSelf={'center'}>
-                      Hue Yomi - Vincent
-                  </Heading>
-                  <Box className='player-main' display={'flex'} justifyContent={'center'}>
-                      <Player
-                          currentSong={currentSong}
-                          currentIndex={currentIndex}
-                          nextSong={nextSong}
-                          prevSong={prevSong}
-                      />
-                  </Box>
+              <Box className='player-main' display='flex' justifyContent={'right'}>
+                  <Player
+                      currentSong={currentSong}
+                      currentIndex={currentIndex}
+                      nextSong={nextSong}
+                      prevSong={prevSong}
+                  />
               </Box>
+              <Heading textAlign={'center'} pb='10' fontSize='5xl' alignSelf={'center'}>
+                  Hue Yomi - Vincent
+              </Heading>
               <Tabs isFitted>
                   <TabList mb='1em'>
                       <Tab1 {...searchFormProps} />

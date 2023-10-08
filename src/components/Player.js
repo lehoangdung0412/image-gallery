@@ -26,12 +26,9 @@ export default function Player({ currentSong, currentIndex, nextSong, prevSong }
     return (
         <Card
             borderWidth={'0px'}
-            // borderRadius={'20px'}
-            // borderColor={'orange'}
             direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
             variant='outline'
-            marginBottom={'30px'}
         >
             <Stack>
                 <CardBody className='player-main'>
@@ -45,8 +42,8 @@ export default function Player({ currentSong, currentIndex, nextSong, prevSong }
                         <Box className='audio-waveform'>
                             <AudioSpectrum
                                 id="audio-canvas"
-                                height={110}
-                                width={300}
+                                height={80}
+                                width={304}
                                 audioId={'audio-element'}
                                 capColor={'#ffc107'}
                                 capHeight={2}
@@ -60,12 +57,12 @@ export default function Player({ currentSong, currentIndex, nextSong, prevSong }
                         </Box>
 
                         {/*<h2 className='activeSong-name'>{currentSong.name}</h2>*/}
-                        <h4 className='activeSong-name'>{currentSong.name}</h4>
+                        <p className='activeSong-name'>{currentSong.name}</p>
                         <Box className='control-icon' display='flex' alignItems='baseline'>
                             <BiSkipPreviousCircle
                                 color='white'
                                 className='icons'
-                                size={50}
+                                size={25}
                                 onClick={prevSong}
                             />
 
@@ -73,20 +70,20 @@ export default function Player({ currentSong, currentIndex, nextSong, prevSong }
                                 <BiPauseCircle
                                     color='#ff5722'
                                     className='icons'
-                                    size={70}
+                                    size={30}
                                     onClick={togglePlay}
                                 />
                             ) : (
                                 <BiPlayCircle
                                     color='#ff5722'
-                                    size={70}
+                                    size={30}
                                     className='icons'
                                     onClick={togglePlay}
                                 />
                             )}
                             <BiSkipNextCircle
                                 color='white'
-                                size={50}
+                                size={25}
                                 className='icons'
                                 onClick={nextSong}
                             />

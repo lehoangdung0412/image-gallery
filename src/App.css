@@ -40,17 +40,17 @@
 }
 
 .player-main {
-  padding: 20px;
+  /*padding: 20px;*/
   display: flex;
   /*justify-content: center;*/
   /*align-items: center;*/
-  height: 33vh;
+  /*height: 33vh;*/
   overflow: hidden;
 }
 
 .player-card {
-  width: 300px;
-  height: 23vh;
+  width: 304px;
+  height: 155px;
   background-color: #212121;
   border-radius: 20px;
   -webkit-box-shadow: 13px 12px 40px -7px rgba(251, 192, 147, 0.75);
@@ -92,12 +92,13 @@
 /*}*/
 
 .activeSong-name {
-  color: white;
+  color: orange;
   font-family: Poppins;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 215px;
+  top: 145px;
   text-align: center;
   left: 50%;
   transform: translate(-50%, 0);
