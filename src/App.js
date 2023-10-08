@@ -59,7 +59,7 @@ const App = () => {
     useEffect(() => {
         const handleSubmit = async () => {
             setPage(1)
-            setQuery('images')
+            setQuery('pictures')
             const images = await searchImages({ setPage, setHasMore })
             setImages(images)
         }

@@ -7,14 +7,14 @@ const Tab1 = ({ setImages, setPage, setHasMore }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setPage(1)
-        setQuery('images')
+        setQuery('pictures')
         const images = await searchImages({ setPage, setHasMore })
         setImages(images)
     }
 
     return (
         <Tab onClick={handleSubmit}>
-            Engagement Ceremony Pictures
+            Pre-Wedding Pictures
         </Tab>
     )
 }
