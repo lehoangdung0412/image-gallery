@@ -9,7 +9,7 @@ const importAll = (r, page) => {
     return images.slice(((page - 1) * 15 + 1), page * 15 + 1)
 }
 
-const searchImages = async ({ setPage, page = 1, setHasMore, direct_path }) => {
+const searchImages = async ({ setPage, page = 1, setHasMore }) => {
     const query = getQuery()
     if (!query) return []
     let data;

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,101 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.player-main {
+  padding: 20px;
+  display: flex;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  height: 33vh;
+  overflow: hidden;
+}
+
+.player-card {
+  width: 300px;
+  height: 23vh;
+  background-color: #212121;
+  border-radius: 20px;
+  -webkit-box-shadow: 13px 12px 40px -7px rgba(251, 192, 147, 0.75);
+  -moz-box-shadow: 13px 12px 40px -7px rgba(251, 192, 147, 0.75);
+  box-shadow: 13px 12px 40px -7px rgba(251, 192, 147, 0.75);
+}
+
+.control-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.icons {
+  box-shadow: 0px 0px 56px -5px rgba(252, 109, 25, 0.75);
+  -webkit-box-shadow: 0px 0px 56px -5px rgba(252, 109, 25, 0.75);
+  -moz-box-shadow: 0px 0px 56px -5px rgba(252, 109, 25, 0.75);
+  border-radius: 50%;
+}
+
+.icons:hover {
+  color: #ff9800 !important;
+  cursor: pointer;
+}
+
+/*.activeSong-name {*/
+/*  color: white;*/
+/*  font-family: Poppins;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  position: absolute;*/
+/*  top: 100px;*/
+/*  left: 50%;*/
+/*  transform: translate(-50%, 0);*/
+/*  text-align: center;*/
+/*}*/
+
+.activeSong-name {
+  color: white;
+  font-family: Poppins;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 215px;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.activeArtist-duration{
+  color: white;
+  font-family: Poppins;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 230px;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.music-image {
+  width: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  box-shadow: 0px 0px 56px -5px rgba(15, 15, 15, 0.75) inset;
+  -webkit-box-shadow: 0px 0px 56px -5px rgba(15, 15, 15, 0.75) inset;
+  -moz-box-shadow: 0px 0px 56px -5px rgba(15, 15, 15, 0.75) inset;
+}
+
+.audio-waveform{
+  /*text-align: center;*/
+  /*position: relative;*/
+  /*top: 200px;*/
 }

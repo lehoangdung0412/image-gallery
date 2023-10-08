@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
-import { Heading, Box, Flex, Spinner } from '@chakra-ui/react';
+import React, {useEffect, useState} from 'react';
+import { Heading, Box, Flex, Spinner, Tabs, TabList } from '@chakra-ui/react';
 import InfiniteScroll from "react-infinite-scroll-component";
 import searchImages from "./utils/searchImages";
 import Images from "./components/Images";
-import ButtonMod from "./components/Init";
-import ButtonMod2 from "./components/ButtonMod2";
+import Tab1 from "./components/Tab1";
+import Tab2 from "./components/Tab2";
+import { ChakraProvider } from '@chakra-ui/react'
+import { setQuery } from "./utils/cookies";
+import Player from "./components/Player";
+import { audios } from "./audioData";
+import './App.css';
 
 const fetchNextImages =
     ({ page, setImages, setPage, setHasMore }) =>
         async () => {
-            const direct_path = ""
-          const images = await searchImages({
-            setPage,
-            page,
-            setHasMore,
-            direct_path
-          })
-
-          setImages((prev) => prev.concat(images))
+            const images = await searchImages({ setPage, page, setHasMore })
+            setImages((prev) => prev.concat(images))
         }
 
 const Loader = () => (
@@ -28,7 +26,6 @@ const Loader = () => (
 
 const App = () => {
     const [images, setImages] = useState([])
-
     const [hasMore, setHasMore] = useState(false)
     const [page, setPage] = useState(1)
     const searchFormProps = {
@@ -36,29 +33,70 @@ const App = () => {
         setPage,
         setHasMore,
     }
-  return (
-      <Box w='90%' m='0 auto'>
-          <Heading align='center' py='10' fontSize='5xl'>
-              Hue Yomi - Vincent
-          </Heading>
+    const songs = audios;
+    const [currentIndex, setCurrentIndex] = useState(null);
+    const [currentSong, setCurrentSong] = useState(songs[0]);
 
-          <ButtonMod {...searchFormProps} />
-          <ButtonMod2 {...searchFormProps} />
-          <InfiniteScroll
-              next={fetchNextImages({
-                  page,
-                  setImages,
-                  setPage,
-                  setHasMore,
-              })}
-              dataLength={images.length}
-              hasMore={hasMore}
-              loader={<Loader />}
-          >
-              <Images images={images} />
-          </InfiniteScroll>
-      </Box>
-  )
+    const nextSong = () => {
+        if(currentIndex + 1 < audios.length){
+            setCurrentIndex(currentIndex + 1)
+            setCurrentSong(audios[currentIndex + 1])
+        }
+    }
+
+    const prevSong = () => {
+        if(currentIndex > 0){
+            setCurrentIndex(currentIndex - 1)
+            setCurrentSong(audios[currentIndex - 1])
+        }
+    }
+    useEffect(() => {
+        const handleSubmit = async () => {
+            setPage(1)
+            setQuery('images')
+            const images = await searchImages({ setPage, setHasMore })
+            setImages(images)
+        }
+        handleSubmit()
+    }, []);
+    return (
+      <ChakraProvider>
+          <Box w='90%' m='0 auto'>
+              <Box display={'grid'} gridGap={'20px'} gridTemplateColumns={'1fr 1fr'}>
+                  <Heading textAlign={'center'} py='10' fontSize='5xl' alignSelf={'center'}>
+                      Hue Yomi - Vincent
+                  </Heading>
+                  <Box className='player-main' display={'flex'} justifyContent={'center'}>
+                      <Player
+                          currentSong={currentSong}
+                          currentIndex={currentIndex}
+                          nextSong={nextSong}
+                          prevSong={prevSong}
+                      />
+                  </Box>
+              </Box>
+              <Tabs isFitted>
+                  <TabList mb='1em'>
+                      <Tab1 {...searchFormProps} />
+                      <Tab2 {...searchFormProps} />
+                  </TabList>
+              </Tabs>
+              <InfiniteScroll
+                  next={fetchNextImages({
+                      page,
+                      setImages,
+                      setPage,
+                      setHasMore,
+                  })}
+                  dataLength={images.length}
+                  hasMore={hasMore}
+                  loader={<Loader />}
+              >
+                  <Images images={images}/>
+              </InfiniteScroll>
+          </Box>
+      </ChakraProvider>
+    )
 }
 
 export default App;
