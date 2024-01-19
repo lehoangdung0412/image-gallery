@@ -7,7 +7,7 @@ const Tab1 = ({ setImages, setPage, setHasMore }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setPage(1)
-        setQuery('pictures')
+        setQuery('prewedding')
         const images = await searchImages({ setPage, setHasMore })
         setImages(images)
     }

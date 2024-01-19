@@ -10,6 +10,7 @@ import { setQuery } from "./utils/cookies";
 import Player from "./components/Player";
 import { audios } from "./audioData";
 import './App.css';
+import Tab3 from "./components/Tab3";
 
 const fetchNextImages =
     ({ page, setImages, setPage, setHasMore }) =>
@@ -59,7 +60,7 @@ const App = () => {
     useEffect(() => {
         const handleSubmit = async () => {
             setPage(1)
-            setQuery('pictures')
+            setQuery('prewedding')
             const images = await searchImages({ setPage, setHasMore })
             setImages(images)
         }
@@ -83,6 +84,7 @@ const App = () => {
                   <TabList mb='1em'>
                       <Tab1 {...searchFormProps} />
                       <Tab2 {...searchFormProps} />
+                      <Tab3 {...searchFormProps} />
                   </TabList>
               </Tabs>
               <InfiniteScroll

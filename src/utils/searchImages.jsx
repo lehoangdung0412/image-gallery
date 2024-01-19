@@ -13,11 +13,14 @@ const searchImages = async ({ setPage, page = 1, setHasMore }) => {
     const query = getQuery()
     if (!query) return []
     let data;
-    if (query === "images") {
-        data = importAll(require.context('../assets/images', false, /\.(png|jpe?g|svg)$/), page);
+    if (query === "engagement") {
+        data = importAll(require.context('../assets/engagement', false, /\.(png|jpe?g|svg)$/), page);
     }
-    else if (query === "pictures") {
-        data = importAll(require.context('../assets/pictures', false, /\.(png|jpe?g|svg|JPG)$/), page);
+    if (query === "prewedding") {
+        data = importAll(require.context('../assets/prewedding', false, /\.(png|jpe?g|svg|JPG)$/), page);
+    }
+    else if (query === "wedding0601") {
+        data = importAll(require.context('../assets/wedding0601', false, /\.(png|jpe?g|svg|JPG)$/), page);
     }
     setPage((prev) => prev + 1)
 
