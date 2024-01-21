@@ -14,7 +14,7 @@ const Tab1 = ({ setImages, setPage, setHasMore }) => {
 
     return (
         <Tab onClick={handleSubmit}>
-            Pre-Wedding Pictures
+            Pre-Wedding
         </Tab>
     )
 }

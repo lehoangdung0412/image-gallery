@@ -11,6 +11,9 @@ import Player from "./components/Player";
 import { audios } from "./audioData";
 import './App.css';
 import Tab3 from "./components/Tab3";
+import Tab6 from "./components/Tab6";
+import Tab4 from "./components/Tab4";
+import Tab5 from "./components/Tab5";
 
 const fetchNextImages =
     ({ page, setImages, setPage, setHasMore }) =>
@@ -60,7 +63,7 @@ const App = () => {
     useEffect(() => {
         const handleSubmit = async () => {
             setPage(1)
-            setQuery('prewedding')
+            setQuery('wedding1001')
             const images = await searchImages({ setPage, setHasMore })
             setImages(images)
         }
@@ -82,9 +85,14 @@ const App = () => {
               </Heading>
               <Tabs isFitted>
                   <TabList mb='1em'>
-                      <Tab1 {...searchFormProps} />
-                      <Tab2 {...searchFormProps} />
+                      <Tab6 {...searchFormProps} />
+                      <Tab5 {...searchFormProps} />
+                      <Tab4 {...searchFormProps} />
+                  </TabList>
+                  <TabList mb='1em'>
                       <Tab3 {...searchFormProps} />
+                      <Tab2 {...searchFormProps} />
+                      <Tab1 {...searchFormProps} />
                   </TabList>
               </Tabs>
               <InfiniteScroll

@@ -14,7 +14,7 @@ const Tab3 = ({ setImages, setPage, setHasMore }) => {
 
     return (
         <Tab onClick={handleSubmit}>
-            Wedding Pictures 06/01/2024
+            Wedding 06/01/2024
         </Tab>
     )
 }

@@ -19,9 +19,19 @@ const searchImages = async ({ setPage, page = 1, setHasMore }) => {
     if (query === "prewedding") {
         data = importAll(require.context('../assets/prewedding', false, /\.(png|jpe?g|svg|JPG)$/), page);
     }
-    else if (query === "wedding0601") {
+    if (query === "wedding0601") {
         data = importAll(require.context('../assets/wedding0601', false, /\.(png|jpe?g|svg|JPG)$/), page);
     }
+    if (query === "wedding0701bride") {
+        data = importAll(require.context('../assets/wedding0701bride', false, /\.(png|jpe?g|svg|JPG)$/), page);
+    }
+    if (query === "wedding0701groom") {
+        data = importAll(require.context('../assets/wedding0701groom', false, /\.(png|jpe?g|svg|JPG)$/), page);
+    }
+    else if (query === "wedding1001") {
+        data = importAll(require.context('../assets/wedding1001', false, /\.(png|jpe?g|svg|JPG)$/), page);
+    }
+
     setPage((prev) => prev + 1)
 
     if (data.length < 15) {
